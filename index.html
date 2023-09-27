@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>PsychoTrope - шутер и психологический хоррор</title>
+  <style>
+
+    @font-face {
+      font-family: 'FSEX300';
+      src: url('https://github.com/PinskiyGithub/PsychoTrope/raw/main/FSEX300.ttf') format('truetype');
+
+    }
+
+    body {
+      font-family: 'FSEX300', sans-serif;
+
+    }
+    body {
+      background-color: black;
+      color: limegreen;
+      font-family: "FSEX300", monospace;
+      text-align: center;
+    }
+
+    #container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    #console {
+      font-size: 24px;
+      width: 400px;
+      height: 200px;
+      background-color: black;
+      padding: 10px;
+      white-space: pre-wrap;
+    }
+
+    #password-input {
+      background-color: black;
+      color: limegreen;
+      border: 2px solid limegreen;
+      outline: none;
+      font-family: "FSEX300", monospace;
+      font-size: 24px;
+      width: 100%;
+      caret-color: limegreen;
+    }
+
+    pre {
+      font-size: 10px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    #error-message {
+      display: none;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="container">
+    <div id="console">
+      <pre>
+        .,                             ,. -,        ,-·-.          ,'´¨;                 ,. - .,               .·¨'`;        ,.·´¨;\          , ·. ,.-·~·.,   ‘             ,  . .,  °         ,. -  .,                     , ·. ,.-·~·.,   ‘           .,                               _,.,  °    
+        ,·´    '` ·.'                 ,.·'´,    ,'\       ';   ';\      ,'´  ,':\'          ,·'´ ,. - ,   ';\          ';   ;'\       ';   ;::\        /  ·'´,.-·-.,   `,'‚       ;'´    ,   ., _';\'     ,' ,. -  .,  `' ·,             /  ·'´,.-·-.,   `,'‚       ,·´    '` ·.'                  ,.·'´  ,. ,  `;\ '  
+         \`; `·;·.   `·,         ,·'´ .·´'´-·'´::::\'      ;   ';:\   .'   ,'´::'\'     ,·´  .'´\:::::;'   ;:'\ '       ;   ;::'\      ,'   ;::';      /  .'´\:::::::'\   '\ °     \:´¨¯:;'   `;::'\:'\    '; '·~;:::::'`,   ';\         /  .'´\:::::::'\   '\ °      \`; `·;·.   `·,            .´   ;´:::::\`'´ \'\  
+          ;   ,'\::`·,   \'      ;    ';:::\::\::;:'       '\   ';::;'´  ,'´::::;'     /  ,'´::::'\;:-/   ,' ::;  '     ;  ;::_';,. ,.'   ;:::';°  ,·'  ,'::::\:;:-·-:';  ';\‚       \::::;   ,'::_'\;'     ;   ,':\::;:´  .·´::\'    ,·'  ,'::::\:;:-·-:';  ';\‚       ;   ,'\::`·,   \'         /   ,'::\::::::\:::\:' 
+         ;   ,'::'\:::';   ';     \·.    `·;:'-·'´            \  '·:'  ,'´:::::;' '   ,'   ;':::::;'´ ';   /\::;' '     .'     ,. -·~-·,   ;:::'; ' ;.   ';:::;´       ,'  ,':'\‚          ,'  ,'::;'  ‘       ;  ·'-·'´,.-·'´:::::::';  ;.   ';:::;´       ,'  ,':'\‚     ;   ,'::'\:::';   ';       ;   ;:;:-·'~^ª*';\'´   
+         ;   ;:::;'·:.'  ,·'\'     \:`·.   '`·,  '             '·,   ,'::::::;'´     ;   ;:::::;   '\*'´\::\'  °     ';   ;'\::::::::;  '/::::;    ';   ;::;       ,'´ .'´\::';‚         ;  ;:::;  °     ;´    ':,´:::::::::::·´'    ';   ;::;       ,'´ .'´\::';‚    ;   ;:::;'·:.'  ,·'\'      ;  ,.-·:*'´¨'`*´\::\ '  
+        ';  ';: -· '´. ·'´:::'\'      `·:'`·,   \'               ,'  /::::::;'  '     ';   ';::::';    '\::'\/.'         ;  ';:;\;::-··;  ;::::;     ';   ':;:   ,.·´,.·´::::\;'°         ;  ;::;'  ‘       ';  ,    `·:;:-·'´         ';   ':;:   ,.·´,.·´::::\;'°   ';  ';: -· '´. ·'´:::'\'    ;   ;\::::::::::::'\;'   
+        ;  ,-·:'´:\:::::::;·'        ,.'-:;'  ,·\            ,´  ';\::::;'  '        \    '·:;:'_ ,. -·'´.·´\‘       ':,.·´\;'    ;' ,' :::/  '     \·,   `*´,.·'´::::::;·´            ;  ;::;'‚         ; ,':\'`:·.,  ` ·.,         \·,   `*´,.·'´::::::;·´      ;  ,-·:'´:\:::::::;·'     ;  ;'_\_:;:: -·^*';\   
+       ,'  ';::::::'\;:·'´       ,·'´     ,.·´:::'\           \`*ª'´\\::/‘            '\:` ·  .,.  -·:´::::::\'       \:::::\    \·.'::::;         \\:¯::\:::::::;:·´               ',.'\::;'‚         \·-;::\:::::'`:·-.,';        \\:¯::\:::::::;:·´        ,'  ';::::::'\;:·'´         ';    ,  ,. -·:*'´:\:'\° 
+       \·.,·\;-· '´  '           \`*'´\::::::::;·'‘           '\:::::\';  '             \:::::::\:::::::;:·'´'          \;:·´     \:\::';           `\:::::\;::·'´  °                 \::\:;'‚          \::\:;'` ·:;:::::\::\'       `\:::::\;::·'´  °         \·.,·\;-· '´  '             \`*´ ¯\:::::::::::\;' '
+        \::\:\                   \::::\:;:·´                  `*ª'´‘                   `· :;::\;::-·´                          `·\;'                ¯                             \;:'      ‘       '·-·'       `' · -':::''          ¯                     \::\:\                      \:::::\;::-·^*'´     
+         `'·;·'                     '`*'´‘                        '                                                                 '                  ‘                               °                                              ‘                      `'·;·'                        `*´¯              
+    </pre>
+      <p>Введите пароль:</p>
+      <input type="password" id="password-input" autocomplete="off" onkeydown="checkEnter(event)">
+      <p id="error-message">Неверный пароль. Попробуйте еще раз.</p>
+    </div>
+  </div>
+
+  <script>
+    var passwordInput = document.getElementById('password-input');
+    passwordInput.focus();
+
+    function checkEnter(event) {
+      if (event.keyCode === 13) {
+        checkPassword();
+      }
+    }
+
+    function checkPassword() {
+      var password = passwordInput.value.toLowerCase();
+      if (password === 'psychotrope') {
+        window.location.href = 'main.html';
+      } else {
+        document.getElementById('error-message').style.display = 'block';
+      }
+    }
+  </script>
+</body>
+
+</html>
